@@ -3,37 +3,39 @@ package csu.web.mypetstore.domain;
 import java.io.Serializable;
 
 public class Category implements Serializable {
-    private static final long serialVersionUID = 3992469837058393712L;
 
-    private String categoryId;
-    private String name;
-    private String description;
+  private static final long serialVersionUID = 3992469837058393712L;
 
-    public String getCategoryId() {
-        return categoryId;
-    }
+  private String categoryId;
+  private String name;
+  private String description;
 
-    public void setCategoryId(String categoryId) {
-        this.categoryId = categoryId.trim();
-    }
+  public String getCategoryId() {
+    return categoryId;
+  }
 
-    public String getName() {
-        return name;
-    }
+  public void setCategoryId(String categoryId) {
+    this.categoryId = categoryId.trim();
+  }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+  public String getName() {
+    return name;
+  }
 
-    public String getDescription() {
-        return description;
-    }
+  public void setName(String name) {
+    this.name = name;
+  }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+  public String getDescription() {
+    return description;
+  }
 
-    public String toString() {
-        return getCategoryId();
-    }
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public String toString() {
+    return getCategoryId();
+  }
+
 }

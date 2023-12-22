@@ -13,7 +13,7 @@
         <input type="submit" value="Login">
     </form>
     Need a user name and password?
-    <a href="registerForm">Register Now!</a>
+    <a href="NewAccountForm">Register Now!</a>
 
 </div>
 

@@ -3,57 +3,61 @@ package csu.web.mypetstore.service;
 import csu.web.mypetstore.domain.Category;
 import csu.web.mypetstore.domain.Item;
 import csu.web.mypetstore.domain.Product;
-import csu.web.mypetstore.persistence.CategoryDao;
-import csu.web.mypetstore.persistence.ItemDao;
-import csu.web.mypetstore.persistence.ProductDao;
-import csu.web.mypetstore.persistence.impl.CategoryDaoImpl;
-import csu.web.mypetstore.persistence.impl.ItemDaoImpl;
-import csu.web.mypetstore.persistence.impl.ProductDaoImpl;
+import csu.web.mypetstore.persistence.CategoryDAO;
+import csu.web.mypetstore.persistence.Impl.CategoryDAOImpl;
+import csu.web.mypetstore.persistence.Impl.ItemDAOImpl;
+import csu.web.mypetstore.persistence.Impl.ProductDAOImpl;
+import csu.web.mypetstore.persistence.ItemDAO;
+import csu.web.mypetstore.persistence.ProductDAO;
 
 import java.util.List;
 
 public class CatalogService {
-    private CategoryDao categoryDao;
-    private ProductDao productDao;
-    private ItemDao itemDao;
+    //业务逻辑层调用数据访问层
+    private CategoryDAO categoryDAO;
+    private ProductDAO productDAO;
+    private ItemDAO itemDAO;
+
 
     public CatalogService(){
-        this.categoryDao = new CategoryDaoImpl();
-        this.productDao = new ProductDaoImpl();
-        this.itemDao = new ItemDaoImpl();
+        categoryDAO = new CategoryDAOImpl();
+        productDAO = new ProductDAOImpl();
+        itemDAO = new ItemDAOImpl();
     }
 
     public List<Category> getCategoryList() {
-        return categoryDao.getCategoryList();
+
+        return categoryDAO.getCategoryList();
     }
 
     public Category getCategory(String categoryId) {
-        return categoryDao.getCategory(categoryId);
+
+        return categoryDAO.getCategory(categoryId);
     }
 
     public Product getProduct(String productId) {
-        return productDao.getProduct(productId);
+
+        return productDAO.getProduct(productId);
     }
 
     public List<Product> getProductListByCategory(String categoryId) {
-        return productDao.getProductListByCategory(categoryId);
+        return productDAO.getProductListByCategory(categoryId);
     }
 
-    // TODO enable using more than one keyword
+    /* TODO enable using more than one keyword*/
     public List<Product> searchProductList(String keyword) {
-        return productDao.searchProductList("%" + keyword.toLowerCase() + "%");
+        return productDAO.searchProductList("%" + keyword.toLowerCase() + "%");
     }
 
     public List<Item> getItemListByProduct(String productId) {
-        return itemDao.getItemListByProduct(productId);
+        return itemDAO.getItemListByProduct(productId);
     }
 
     public Item getItem(String itemId) {
-        return itemDao.getItem(itemId);
+        return itemDAO.getItem(itemId);
     }
 
     public boolean isItemInStock(String itemId) {
-        return itemDao.getInventoryQuantity(itemId) > 0;
+        return itemDAO.getInventoryQuantity(itemId) > 0;
     }
-
 }

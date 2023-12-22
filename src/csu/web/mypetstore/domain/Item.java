@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 
 public class Item implements Serializable {
+
     private static final long serialVersionUID = -2159121673445254631L;
 
     private String itemId;
@@ -127,4 +128,5 @@ public class Item implements Serializable {
     public String toString() {
         return "(" + getItemId() + "-" + getProductId() + ")";
     }
+
 }
